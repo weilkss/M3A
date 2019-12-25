@@ -1,0 +1,152 @@
+page {
+  overflow: hidden;
+}
+
+.tab {
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+  border-bottom: 2rpx solid #eee;
+}
+
+.tab-item {
+  height: 60px;
+  line-height: 60px;
+  flex-grow: 1;
+  text-align: center;
+  transition: all 0.3s;
+  font-weight: bold;
+}
+
+.tab-item.active {
+  color: #f40000;
+}
+
+.tab-active {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100rpx;
+  height: 4rpx;
+  background-color: #f40000;
+  transition: all 0.3s ease-in-out;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #000;
+}
+
+.content {
+  width: 200vw;
+  height: calc(100vh - 60px);
+  display: flex;
+  justify-content: space-between;
+  transition: all 0.3s;
+  overflow: hidden;
+}
+
+.add {
+  width: 100vw;
+}
+
+.history {
+  width: 100vw;
+  height: calc(100vh - 60px);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  border-bottom: 2rpx solid #f6f6f6;
+}
+
+.label {
+  width: 200rpx;
+}
+
+.gengduo {
+  font-size: 24rpx;
+  margin-left: 10rpx;
+  color: #999;
+}
+
+.input-texts {
+  font-size: 28rpx;
+  flex-grow: 1;
+  text-align: right;
+}
+
+.color9 {
+  color: #999;
+}
+
+.danwei {
+  font-size: 24rpx;
+  color: #999;
+  margin-left: 10rpx;
+}
+
+.submmit {
+  width: 60%;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin: auto;
+  border-radius: 10rpx;
+  margin-top: 100rpx;
+  background-color: #f40000;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+}
+
+.history-item {
+  padding: 30rpx;
+  border-bottom: 2rpx solid #eee;
+  font-size: 28rpx;
+  font-weight: bold;
+  display: flex;
+}
+
+.date {
+  color: #000;
+  flex-shrink: 0;
+}
+
+.price {
+  color: #f40000;
+  margin: 0 20rpx;
+}
+
+.weizhi {
+  color: #339bf4;
+  margin-right: 10rpx;
+}
+
+.name {
+  color: #339bf4;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.all {
+  display: flex;
+  padding: 30rpx;
+  border-bottom: 10rpx solid #eee;
+}
+
+.item-all {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.num {
+  font-size: 36rpx;
+  color: #000;
+  font-weight: bold;
+}
+
+.title {
+  font-size: 26rpx;
+  color: #999;
+  margin-top: 10rpx;
+}

@@ -1,0 +1,14 @@
+<view class="box transition">
+  <view class="title">所有粉丝</view>
+  <view class="user-panel" wx:for="{{fans}}" wx:key="index">
+    <image class="head" src="{{item.user.avatarUrl || '/images/youxiang.png'}}"></image>
+    <view class="center">
+      <view class="name">
+        <text class="name-text">{{item.user.name}}</text>
+        <i class="iconfont {{item.user.gender ? 'nan' : 'nv'}}"></i>
+      </view>
+      <view class="code">{{item.user.code ? 'M3A*' + item.user.code : ''}} 发帖 {{item.post}} 粉丝 {{item.fans}}</view>
+    </view>
+    <view class="follow {{item.isFollow ? 'follows' : ''}}" data-id="{{item._id}}" bindtap="handleFollow">{{item.isFollow ? "已关注" : "关注"}}</view>
+  </view>
+</view>

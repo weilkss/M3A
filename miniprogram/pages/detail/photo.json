@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "MA3 图片贴详情",
+  "usingComponents": {
+    "comment-bottom": "/components/comment-bottom/index"
+  }
+}

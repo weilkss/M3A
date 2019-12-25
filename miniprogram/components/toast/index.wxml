@@ -1,0 +1,9 @@
+<template name="toast">
+  <view class="toast-content-center" wx:if='{{isHide}}'>
+    <div class="half-circle-spinner">
+      <div class="circle circle-1"></div>
+      <div class="circle circle-2"></div>
+    </div>
+    <view class="toast-content">{{content}}</view>
+  </view>
+</template>

@@ -1,0 +1,8 @@
+<view class="{{systemInfo.platform == 'ios' ? 'announce-i-box' : 'announce-a-box'}}" wx:hidden="{{announce}}">
+  <view class="announce-item" wx:for="{{announces}}" wx:key="index">
+    <view class="announce-item-box" data-index="{{index}}" style="top:{{item.announce ? '0' : '150rpx'}};left:{{item.announce ? '0' : index == 0 ? '150rpx' : index == 1 ? '60rpx' : index == 2 ? '-60rpx' : '-150rpx'}}" bindtap="handleToAnnounce">
+      <image src="{{item.url}}"></image>
+      <view>{{item.text}}</view>
+    </view>
+  </view>
+</view>

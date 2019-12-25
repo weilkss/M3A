@@ -1,0 +1,34 @@
+<import src="../../components/toast/index.wxml" />
+<template is="toast" data="{{isHide,content}}" />
+
+<!-- 发图片 -->
+<view class="container">
+  <textarea class="textarea" value="{{title}}" placeholder="添加相关的标题~（200字以内）" maxlength="200" bindblur="handleInputBlur"></textarea>
+  <scroll-view class="img-box" scroll-y="true">
+    <view wx:for="{{uploadImgs}}" wx:key="index">
+      <image class="item-img" mode="widthFix" src="{{item.url}}"></image>
+      <input class="img-input" data-index="{{index}}" placeholder="添加描述" bindblur="handleBlur"></input>
+    </view>
+    <view class="upload-btn" bindtap="uploadImage">
+      <i class="iconfont shangchuang"></i>
+    </view>
+  </scroll-view>
+  <view class="bottom">
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{images}}">
+      <view class="bottom-item">
+        <i class="iconfont leixing"></i>
+        <text class="label">选择类型</text>
+        <text class="lx-text">{{index ? images[index] : '选择您要分享的类型'}}</text>
+        <i class="iconfont gengduo"></i>
+      </view>
+    </picker>
+    <view class="bottom-item" bindtap="handleOpenLotion">
+      <i class="iconfont dingwei"></i>
+      <text class="label">选择位置</text>
+      <text class="lx-text">{{address.name}}</text>
+      <i class="iconfont gengduo"></i>
+    </view>
+
+    <view class="release-btn" bindtap="handleRelease">发布</view>
+  </view>
+</view>

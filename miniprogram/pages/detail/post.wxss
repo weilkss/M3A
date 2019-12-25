@@ -1,0 +1,12 @@
+@import "./common.wxss";
+@import "../../utils/wxParse/wxParse.wxss";
+
+.post-detail {
+  padding: 30rpx;
+  font-size: 32rpx;
+}
+
+.wxParse-img {
+  width: 100%;
+  margin: 10rpx 0;
+}

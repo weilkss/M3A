@@ -1,0 +1,1 @@
+<canvas class="ec-canvas" canvas-id="{{ canvasId }}"></canvas>

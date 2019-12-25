@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "vehicle-panel": "/components/vehicle-panel/index"
+  },
+  "navigationBarTitleText": "添加我的爱车"
+}

@@ -1,0 +1,44 @@
+<view class="item border">
+  <label class="label">车牌号：</label>
+  <view class="bind" bindtap="handleCarcode">
+    <text class="input-text" wx:if="{{carcode || isShow}}">{{carcode}}</text>
+    <text class="input-text c999" wx:else>请输入车牌号</text>
+    <view wx:if="{{isShow}}" class='className'></view>
+  </view>
+</view>
+
+<view bindtap="handCloseCarcode">
+  <view class="item">
+    <label class="label">副牌号：</label>
+    <text class="qz">M3A*</text>
+    <input class="input" type="number" value="{{code}}" maxlength='5' placeholder-class="c999" placeholder="请输入副牌号" bindblur="handleBlur"></input>
+  </view>
+
+  <picker bindchange="bindPickerColor" value="{{cinx}}" range="{{colors}}">
+    <view class="item border">
+      <label class="label">颜色：</label>
+      <text class="input-texts {{cinx ? '' : 'c999'}}">{{cinx?colors[cinx]:'请选择车身颜色'}}</text>
+      <i class="iconfont gengduo c999"></i>
+    </view>
+  </picker>
+
+  <picker bindchange="bindPickerPails" value="{{pinx}}" range="{{pails}}">
+    <view class="item">
+      <label class="label">排量：</label>
+      <text class="input-texts {{pinx ? '' : 'c999'}}">{{pinx ? pails[pinx] : '请选择排量'}}</text>
+      <i class="iconfont gengduo c999"></i>
+    </view>
+  </picker>
+
+  <picker bindchange="bindPickerMode" value="{{minx}}" range="{{modelling}}">
+    <view class="item">
+      <label class="label">车型：</label>
+      <text class="input-texts {{minx ? '' : 'c999'}}">{{minx ? modelling[minx] : '请选择车型'}}</text>
+      <i class="iconfont gengduo c999"></i>
+    </view>
+  </picker>
+
+  <view class="submmit" bindtap="handleSubmit">{{isAdd ? '修改' : '添加'}}</view>
+
+</view>
+<vehicle-panel isShow="{{isShow}}" bindcarcode="bindcarcode" />

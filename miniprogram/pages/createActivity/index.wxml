@@ -1,0 +1,7 @@
+<form report-submit="true" bindsubmit="getFormid">
+  <button class="botton" form-type="submit">获取formid</button>
+</form>
+
+<text>formid:{{ formid }}</text>
+
+<button class="botton" bindtap="sendMsg">发送消息</button>

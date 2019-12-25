@@ -1,0 +1,19 @@
+<import src="../../components/toast/index.wxml" />
+<template is="toast" data="{{isHide,content}}" />
+
+<!-- 发布视频 -->
+<view class="container">
+  <textarea class="textarea" value="{{title}}" placeholder="添加相关的标题~（200字以内）" maxlength="200" bindblur="handleInputBlur"></textarea>
+
+  <view class="video-box">
+    <video class="video" wx:if="{{video}}" style="width:{{width}}px;height:{{height}}px;" id="video" src="{{video.url}}" controls poster="{{video.cover}}"></video>
+  </view>
+  <view class="upload-btn" bindtap="uploadVideo">
+    <i class="iconfont shangchuang"></i>
+    <view wx:if="{{video}}">重新上传</view>
+    <view wx:else>点击上传</view>
+  </view>
+  <view class="bottom">
+    <view class="release-btn" bindtap="handleRelease">发布</view>
+  </view>
+</view>

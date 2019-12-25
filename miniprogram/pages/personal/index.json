@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "tab-announce": "/components/tab-announce/index",
+    "ec-canvas": "/components/ec-canvas/ec-canvas"
+  },
+  "disableScroll": true,
+  "enablePullDownRefresh": true,
+  "navigationStyle": "custom",
+  "navigationBarTitleText": "我的"
+}

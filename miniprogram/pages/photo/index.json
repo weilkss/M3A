@@ -1,0 +1,8 @@
+{
+  "usingComponents": {},
+  "navigationBarTitleText": "车友相册",
+  "backgroundTextStyle": "light",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#f40000",
+  "backgroundColorBottom": "#fff"
+}

@@ -1,0 +1,54 @@
+@import "./common.wxss";
+
+.leixing {
+  font-size: 32rpx;
+  color: #f40000;
+  margin-right: 20rpx;
+}
+
+.weizhi {
+  font-size: 32rpx;
+  color: #339bf4;
+  margin-right: 20rpx;
+}
+
+.type {
+  padding: 0 30rpx;
+  margin-top: 30rpx;
+  color: #999;
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+}
+
+.address {
+  padding: 0 30rpx;
+  margin-top: 30rpx;
+  color: #339bf4;
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+}
+
+.item-img {
+  width: 100%;
+}
+
+.detail {
+  padding: 30rpx;
+}
+
+.describe {
+  font-size: 24rpx;
+  color: #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10rpx 0 30rpx 0;
+}
+
+.shouzhi {
+  font-size: 24rpx;
+  color: #999;
+  margin-right: 12rpx;
+}

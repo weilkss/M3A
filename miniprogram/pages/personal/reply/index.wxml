@@ -1,0 +1,38 @@
+<import src="../../../components/toast/index.wxml" />
+<template is="toast" data="{{isHide,content}}" />
+
+<view class="title transition">全部回复({{replys.length}})</view>
+<view class="item transition" wx:for="{{replys}}" wx:key="index">
+  <image class="head" src="{{item.user_avatar}}"></image>
+  <view class="right">
+    <view class="name">
+      <text>{{item.user_name}}</text>
+      <i wx:if="{{!item.seemsg}}" class="iconfont new"></i>
+    </view>
+    <view class="time">{{item.createTime}}</view>
+    <view class="reply">
+      <view class="info">
+        <text class="color" data-index='{{index}}' bindtap="toDetail">在《{{item.post_title}}》回复了你：</text>
+        <text>{{item.content}}</text>
+      </view>
+      <view class="content" wx:if="{{item.replyid}}">我的回复：{{item.reply_content}}</view>
+      <view class="huifu-box">
+        <i class="iconfont hiufu"></i>
+        <text data-index="{{index}}" bindtap="handleReply">回复</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="comment-input transition" wx:if="{{commentVisible}}" catchtouchmove="catchtouchmove">
+  <view class="comment-input-wrapper" catchtap="handleCloseInput">
+    <view class="comment-input-box {{commentVisibles ? ' show ' : 'hidden '}}" catchtap="catchtap">
+      <view class="comment-input-head">
+        <view class="cancel" bindtap="handleCloseInput">取消</view>
+        <view class="text">评论</view>
+        <view class="cancel" bindtap="handleSend">发送</view>
+        <textarea class="textarea" wx:if="{{textarea}}" value="{{commentText}}" fixed="true" auto-focus="true" bindinput="taInput" placeholder="请输入评论内容"></textarea>
+      </view>
+    </view>
+  </view>
+</view>

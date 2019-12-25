@@ -1,0 +1,184 @@
+@import "../../../utils/loading.wxss";
+
+page {
+  padding-bottom: 50rpx;
+}
+
+.title {
+  font-size: 32rpx;
+  font-weight: bold;
+  padding: 30rpx;
+}
+
+.item {
+  padding: 0 30rpx;
+  margin-top: 30rpx;
+  display: flex;
+}
+
+.head {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  flex-shrink: 0;
+  background-color: #eee;
+}
+
+.right {
+  margin-left: 20rpx;
+  flex-grow: 1;
+}
+
+.name {
+  font-size: 26rpx;
+  font-weight: bold;
+  line-height: 40rpx;
+  display: flex;
+  align-items: center;
+}
+
+.name .new {
+  font-size: 24rpx;
+  color: #f40000;
+  margin-left: 20rpx;
+}
+
+.time {
+  line-height: 40rpx;
+  font-size: 22rpx;
+  color: #999;
+}
+
+.reply {
+  padding: 20rpx;
+  background-color: #f6f6f6;
+  margin-top: 20rpx;
+}
+
+.info {
+  font-size: 26rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 2rpx solid #eee;
+}
+
+.color {
+  color: #339bf4;
+}
+
+.content {
+  margin-top: 20rpx;
+  font-size: 26rpx;
+  color: #999;
+  padding-bottom: 20rpx;
+  border-bottom: 2rpx solid #eee;
+}
+
+.huifu-box {
+  font-size: 20rpx;
+  color: #999;
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+  justify-content: flex-end;
+}
+
+.huifu-box .hiufu {
+  font-size: 24rpx;
+  color: #999;
+  display: block;
+  margin-right: 10rpx;
+}
+
+.comment-input {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1110;
+  outline: 0;
+  text-align: center;
+  backface-visibility: hidden;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.comment-input-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.comment-input-box {
+  position: absolute;
+  background-color: #fff;
+  height: 80%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.show {
+  transform: translateY(100%);
+  animation: show 0.5s ease-in-out forwards;
+}
+
+.hidden {
+  transform: translateY(0);
+  animation: hidden 0.5s ease-in-out forwards;
+}
+
+@keyframes show {
+  0% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes hidden {
+  0% {
+    transform: translateY(0%);
+  }
+
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.comment-input-head {
+  padding: 20rpx 30rpx;
+  border-bottom: 2rpx solid #eee;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.text {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 32rpx;
+  color: #999;
+}
+
+.cancel, .cancel {
+  font-size: 32rpx;
+  color: #f40000;
+}
+
+.textarea {
+  text-align: left;
+  width: 100%;
+  height: 180rpx;
+  font-size: 30rpx;
+  padding: 30rpx;
+  position: absolute;
+  bottom: -180rpx;
+  left: 0;
+  z-index: 1;
+  box-sizing: border-box;
+}

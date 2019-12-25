@@ -1,0 +1,56 @@
+.announce-i-box {
+  position: fixed;
+  bottom: calc(env(safe-area-inset-bottom) + 80px);
+  left: 0;
+  right: 0;
+  z-index: 998;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.announce-a-box {
+  position: fixed;
+  bottom: 80px;
+  left: 0;
+  right: 0;
+  z-index: 998;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.announce-item {
+  margin-top: 100rpx;
+  width: 100rpx;
+  height: 100rpx;
+  position: relative;
+  margin: 0 10rpx;
+}
+
+.announce-item-box {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+  background-color: #fff;
+  position: absolute;
+  top: 150rpx;
+  left: 100rpx;
+  right: 0;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.1);
+}
+
+.announce-item image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 16rpx;
+}
+
+.announce-item view {
+  font-size: 16rpx;
+  color: #333;
+  line-height: 26rpx;
+}

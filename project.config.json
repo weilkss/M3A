@@ -1,0 +1,130 @@
+{
+	"miniprogramRoot": "miniprogram/",
+	"cloudfunctionRoot": "cloudfunctions/",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"enhance": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": false,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+	},
+	"appid": "wx7784dbf127b69808",
+	"projectname": "M3A",
+	"libVersion": "2.8.1",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
+			"list": [
+				{
+					"id": 0,
+					"name": "测试登录",
+					"pathName": "pages/login/index",
+					"query": "backurl=/pages/index/index",
+					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "相册详情",
+					"pathName": "pages/detail/photo",
+					"query": "detailId=72527ac65dfc41060519311d4d61a5e9",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "测试车友",
+					"pathName": "pages/friend/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/personal/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的粉丝",
+					"pathName": "pages/personal/fans/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的关注",
+					"pathName": "pages/personal/follow/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的回复",
+					"pathName": "pages/personal/reply/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "车友相册",
+					"pathName": "pages/photo/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的图贴",
+					"pathName": "pages/personal/post/index",
+					"query": "index=2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "加油记录",
+					"pathName": "pages/personal/consume/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "添加爱车",
+					"pathName": "pages/personal/addcar/index",
+					"scene": null
+				}
+			]
+		}
+	}
+}

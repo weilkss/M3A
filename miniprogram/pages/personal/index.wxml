@@ -1,0 +1,92 @@
+<view class="personal transition" bindtap="handleCloseAnnounce">
+  <cover-view class="head {{isHead? 'show' : 'hidden'}}" style="height:{{ systemInfo.headHeight }}px;">
+    <cover-view class="title" style="height:{{ systemInfo.navHeight }}px;line-height:{{ systemInfo.navHeight }}px;margin-top:{{ systemInfo.statusBarHeight }}px">M3A 个人中心</cover-view>
+  </cover-view>
+  <tab-announce announce="{{announce}}"></tab-announce>
+  <view class="user-panel">
+    <scroll-view class="content" scroll-y="true" bindscroll='handleScroll'>
+      <image class="user-mask {{isHead ? 'absolute' : 'fixed'}}" mode="widthFix" src="/images/personalmask.png" style="transform: scale({{scale}});"></image>
+      <image class="user-avatar" src="{{personalInfo.avatarUrl || '/images/youxiang.png'}}"></image>
+      <view class="user-name" wx:if="{{uid}}">{{personalInfo.name}}</view>
+      <navigator url="/pages/login/index" wx:else hover-class="none">
+        <view class="user-name">登录/注册</view>
+      </navigator>
+      <view class="user-tab">
+        <view class="user-tab-item" bindtap="toFollow">
+          <view class="user-tab-title">{{uid ? personalInfo.follow : '--'}}</view>
+          <view class="user-tab-text">关注</view>
+        </view>
+        <view class="user-tab-item" bindtap="toFans">
+          <view class="user-tab-title">{{uid ? personalInfo.fans : '--'}}</view>
+          <view class="user-tab-text">粉丝</view>
+        </view>
+        <view class="user-tab-item" bindtap="toReply">
+          <view class="user-tab-title color-t">{{uid ? personalInfo.notMsg : '--'}}</view>
+          <view class="user-tab-text">回复</view>
+        </view>
+      </view>
+
+      <view class="release">
+        <view class="release-item" data-index="0" bindtap="toPost">
+          <image class="release-icon" src="/images/icon_order.png"></image>
+          <text class="release-text">帖子</text>
+        </view>
+        <view class="release-item" data-index="1" bindtap="toPost">
+          <image class="release-icon" src="/images/icon_photo.png"></image>
+          <text class="release-text">图片</text>
+        </view>
+        <view class="release-item" data-index="2" bindtap="toPost">
+          <image class="release-icon" src="/images/icon_video.png"></image>
+          <text class="release-text">视频</text>
+        </view>
+        <view class="release-item" data-index="3" bindtap="toPost">
+          <image class="release-icon" src="/images/icon_time.png"></image>
+          <text class="release-text">活动</text>
+        </view>
+      </view>
+
+      <view class="love-car">
+        <block wx:if="{{!personalInfo.car_code}}">
+          <view class="add-car" bindtap="toAddcar">
+            <i class="iconfont tianjia"></i>
+            <text>添加我的爱车</text>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="car-info">
+            <view class="car-logo">
+              <image class="M3A" src="/images/M3A.jpg"></image>
+            </view>
+            <view class="car-name">
+              <view class="car-code">{{personalInfo.car_code}}</view>
+              <view class="code" wx:if="{{personalInfo.code}}">M3A*{{personalInfo.code}}</view>
+              <view class="code" wx:else>暂无</view>
+            </view>
+          </view>
+          <view class="car-setting">
+            <view class="set-item" bindtap="toAddcar">
+              <i class="iconfont car_dongli car_sty"></i>
+              <text class="set-text">{{personalInfo.car_pail}}</text>
+            </view>
+            <view class="set-item car-border" bindtap="toAddcar">
+              <i class="iconfont car_yanse car_sty"></i>
+              <text class="set-text">{{personalInfo.car_color}}</text>
+            </view>
+            <view class="set-item" bindtap="toAddcar">
+              <i class="iconfont car_chexiang car_sty"></i>
+              <text class="set-text">{{personalInfo.car_mode}}</text>
+            </view>
+          </view>
+        </block>
+      </view>
+      <view class="consume">
+        <view class="consume-title">
+          <text>加油记录</text>
+          <i class="iconfont jilu record" bindtap="toConsume"></i>
+        </view>
+        <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
+      </view>
+      <view class="bottom-tab"></view>
+    </scroll-view>
+  </view>
+</view>

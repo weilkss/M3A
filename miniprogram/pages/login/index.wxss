@@ -1,0 +1,16 @@
+.logo {
+  width: 320rpx;
+  height: 320rpx;
+  display: block;
+  margin: 200rpx auto 0;
+}
+
+.login-btn {
+  width: 70%;
+  background-color: #f40000;
+  font-size: 32rpx;
+  color: #fff;
+  line-height: 80rpx;
+  padding: 0;
+  margin: auto;
+}

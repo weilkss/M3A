@@ -1,0 +1,42 @@
+<view class="box transition" wx:if="{{presidents.length}}">
+  <view class="title">会长</view>
+  <view class="user-panel" wx:for="{{presidents}}" wx:key="index">
+    <image class="head" src="{{item.avatarUrl || '/images/youxiang.png'}}"></image>
+    <view class="center">
+      <view class="name">
+        <text class="name-text">{{item.name}}</text>
+        <i class="iconfont {{item.gender ? 'nan' : 'nv'}}"></i>
+      </view>
+      <view class="code">{{item.code ? 'M3A*' + item.code : ''}} 发帖 {{item.post}} 粉丝 {{item.fans}}</view>
+    </view>
+    <view class="follow {{item.isFollow ? 'follows' : ''}}" data-id="{{item._id}}" bindtap="handleFollow">{{item.isFollow ? "已关注" : "关注"}}</view>
+  </view>
+</view>
+<view class="box transition" wx:if="{{vicePresident.length}}">
+  <view class="title">副会长</view>
+  <view class="user-panel" wx:for="{{vicePresident}}" wx:key="index">
+    <image class="head" src="{{item.avatarUrl || '/images/youxiang.png'}}"></image>
+    <view class="center">
+      <view class="name">
+        <text class="name-text">{{item.name}}</text>
+        <i class="iconfont {{item.gender ? 'nan' : 'nv'}}"></i>
+      </view>
+      <view class="code">{{item.code ? 'M3A*' + item.code : ''}} 发帖 {{item.post}} 粉丝 {{item.fans}}</view>
+    </view>
+    <view class="follow {{item.isFollow ? 'follows' : ''}}" data-id="{{item._id}}" bindtap="handleFollow">{{item.isFollow ? "已关注" : "关注"}}</view>
+  </view>
+</view>
+<view class="box transition" wx:if="{{friends.length}}">
+  <view class="title">活跃车友</view>
+  <view class="user-panel" wx:for="{{friends}}" wx:key="index">
+    <image class="head" src="{{item.avatarUrl || '/images/youxiang.png'}}"></image>
+    <view class="center">
+      <view class="name">
+        <text class="name-text">{{item.name}}</text>
+        <i class="iconfont {{item.gender ? 'nan' : 'nv'}}"></i>
+      </view>
+      <view class="code">{{item.code ? 'M3A*' + item.code : ''}} 发帖 {{item.post}} 粉丝 {{item.fans}}</view>
+    </view>
+    <view class="follow {{item.isFollow ? 'follows' : ''}}" data-id="{{item._id}}" bindtap="handleFollow">{{item.isFollow ? "已关注" : "关注"}}</view>
+  </view>
+</view>

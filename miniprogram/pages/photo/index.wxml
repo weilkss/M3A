@@ -1,0 +1,29 @@
+<import src="../../components/toast/index.wxml" />
+<template is="toast" data="{{isHide,content}}" />
+
+<view class="top transition">
+  <image class="top-cover" mode="aspectFill" src="{{first.cover}}" data-id="{{first._id}}" bindtap="toImageDetail"></image>
+  <view class="user-box">
+    <image class="user-head" lazy-load="true" src="{{first.user.avatarUrl}}"></image>
+    <text class="user-name">{{first.user.name}}</text>
+  </view>
+</view>
+
+<view class="tab transition">
+  <text class="{{index == 0 ? 'activate' : ''}}" data-index='0' bindtap="handleSeclet">最新</text>
+  <text class="em"></text>
+  <text class="{{index == 1 ? 'activate' : ''}}" data-index='1' bindtap="handleSeclet">最热</text>
+</view>
+
+<view class="list transition">
+  <block wx:for="{{album}}" wx:key="index">
+    <view class="item" data-id="{{item._id}}" bindtap="toImageDetail">
+      <image class="item-cover" lazy-load="true" mode="aspectFill" src="{{item.cover || '/images/mask.png'}}"></image>
+      <view class="item-title ellipsis">{{item.title}}</view>
+      <view class="item-user-box">
+        <image class="item-user-head" lazy-load="true" src="{{item.user.avatarUrl}}"></image>
+        <text class="item-user-name">{{item.user.name}}</text>
+      </view>
+    </view>
+  </block>
+</view>

@@ -1,0 +1,223 @@
+@import "./components/toast/index.wxss";
+
+page {
+  background: #fff;
+  -webkit-overflow-scrolling: touch;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  line-height: 1;
+  font-size: 0;
+}
+
+button:focus {
+  outline: 0;
+}
+
+button::after {
+  border: none;
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.muEllipsis {
+  overflow: hidden;
+  word-wrap: break-word;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  /*! autoprefixer: off */
+  -webkit-box-orient: vertical;
+  /* autoprefixer: on */
+  -webkit-line-clamp: 2;
+}
+
+.transition {
+  opacity: 0.2;
+  animation: transition 1s forwards;
+}
+
+@keyframes transition {
+  0% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@font-face {
+  font-family: 'iconfont'; /* project id 1523011 */
+  src: url('//at.alicdn.com/t/font_1523011_t98rorrw1sq.eot');
+  src: url('//at.alicdn.com/t/font_1523011_t98rorrw1sq.eot?#iefix') format('embedded-opentype'),
+         url('//at.alicdn.com/t/font_1523011_t98rorrw1sq.woff2') format('woff2'),
+         url('//at.alicdn.com/t/font_1523011_t98rorrw1sq.woff') format('woff'),
+         url('//at.alicdn.com/t/font_1523011_t98rorrw1sq.ttf') format('truetype'),
+         url('//at.alicdn.com/t/font_1523011_t98rorrw1sq.svg#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 32rpx;
+  font-style: normal;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.gengduo::before {
+  content: "\e660";
+}
+
+.weizhi::before {
+  content: "\e60f";
+}
+
+.dianzan::before {
+  content: "\e68f";
+}
+
+.xiala::before {
+  content: "\e612";
+}
+
+.pinlun::before {
+  content: "\e917";
+}
+
+.guanbi::before {
+  content: "\e626";
+}
+
+.e-tupian::before {
+  content: "\e616";
+}
+
+.e-jiacu::before {
+  content: "\e60e";
+}
+
+.e-xiahuaxian::before {
+  content: "\e610";
+}
+
+.e-duanluo::before {
+  content: "\e615";
+}
+
+.e-xieti::before {
+  content: "\e611";
+}
+
+.e-youxu::before {
+  content: "\e614";
+}
+
+.e-wuxu::before {
+  content: "\e613";
+}
+
+.e-h2::before {
+  content: "\e61a";
+}
+
+.e-h3::before {
+  content: "\e61b";
+}
+
+.leixing::before {
+  content: "\e62c";
+}
+
+.dingwei::before {
+  content: "\e602";
+}
+
+.shangchuang::before {
+  content: "\e66d";
+}
+
+.none::before {
+  content: "\e601";
+}
+
+.nan::before {
+  content: "\e623";
+}
+
+.nv::before {
+  content: "\e603";
+}
+
+.shouzhi::before {
+  content: "\e6a0";
+}
+
+.shuzi-1::before {
+  content: "\e61c";
+}
+
+.shuzi-2::before {
+  content: "\e619";
+}
+
+.shuzi-3::before {
+  content: "\e617";
+}
+
+.shuzi-4::before {
+  content: "\e618";
+}
+
+.wupinlun::before {
+  content: "\e673";
+}
+
+.xiepl::before {
+  content: "\e640";
+}
+
+.fenxiang::before {
+  content: "\e605";
+}
+
+/****/
+
+.tianjia::before {
+  content: "\e60a";
+}
+
+.car_dongli::before {
+  content: "\e634";
+}
+
+.car_yanse::before {
+  content: "\e60b";
+}
+
+.car_chexiang::before {
+  content: "\e637";
+}
+
+.jilu::before {
+  content: "\e62e";
+}
+
+.hiufu::before {
+  content: "\e70c";
+}
+
+.new::before {
+  content: "\e684";
+}

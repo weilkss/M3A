@@ -1,0 +1,29 @@
+<view class="tab">
+  <view class="tab-item {{index===tabindex ? 'active' : ''}}" wx:for="{{tabs}}" wx:key="index" data-index="{{index}}" bindtap="handleTab">{{item}}</view>
+  <view class="tab-active" style="width:{{width}}px;left:{{offsetLeft}}px"></view>
+</view>
+
+<view class="post-loading {{postLoading ? 'show' : 'hidden'}}">
+  <div class="looping-rhombuses-spinner">
+    <div class="rhombus"></div>
+    <div class="rhombus"></div>
+    <div class="rhombus"></div>
+  </div>
+</view>
+
+<view class="content">
+  <block wx:if="{{lists.length || postLoading}}">
+    <view class="item transition" wx:for="{{lists}}" wx:key="index" data-index="{{index}}" bindtap="toDetail">
+      <video class="cover" controls="{{false}}" wx:if="{{item.type == 3}}" poster="{{item.cover}}" src="{{item.video.url}}"></video>
+      <image class="cover" wx:else mode="aspectFill" src="{{item.cover}}"></image>
+      <view class="right">
+        <view class="title muEllipsis">{{item.title}}</view>
+        <view class="time">{{item.createTime}}</view>
+      </view>
+    </view>
+  </block>
+  <view class="none-data" wx:else>
+    <i class="iconfont none"></i>
+    <view class="none-text">没有数据，快去发布个吧~</view>
+  </view>
+</view>

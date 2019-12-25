@@ -1,0 +1,78 @@
+@import "../../../utils/loading.wxss";
+
+.tab {
+  display: flex;
+  position: relative;
+  border-bottom: 2rpx solid #eee;
+}
+
+.tab-item {
+  padding: 30rpx;
+  transition: all 0.3s;
+}
+
+.tab-item.active {
+  color: #f40000;
+}
+
+.tab-active {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100rpx;
+  height: 4rpx;
+  background-color: #f40000;
+  transition: all 0.3s ease-in-out;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #000;
+}
+
+.item {
+  display: flex;
+  margin-top: 30rpx;
+  border-bottom: 2rpx solid #eee;
+  padding: 30rpx;
+}
+
+.cover {
+  width: 160rpx;
+  height: 160rpx;
+  flex-shrink: 0;
+  background-color: #eee;
+}
+
+.right {
+  flex-grow: 1;
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 28rpx;
+  color: #000;
+  padding: 10rpx;
+}
+
+.time {
+  font-size: 24rpx;
+  color: #333;
+  padding: 10rpx;
+}
+
+.none-data {
+  text-align: center;
+  margin-top: 200rpx;
+}
+
+.none-text {
+  font-size: 24rpx;
+  color: #f40000;
+}
+
+.none {
+  font-size: 128rpx;
+  color: #f40000;
+}

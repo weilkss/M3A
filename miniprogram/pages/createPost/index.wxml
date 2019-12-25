@@ -1,0 +1,20 @@
+<!-- 发帖子 -->
+<import src="../../components/toast/index.wxml" />
+<template is="toast" data="{{isHide,content}}" />
+
+<view class="container" style="height:{{editorHeight}}px;">
+  <input class="title-input" value="{{title}}" placeholder="输入标题(6-30字之间)" maxlength="30" bindblur="handleInputBlur"></input>
+  <editor id="editor" class="ql-container" placeholder="开始输入正文..." bindstatuschange="onStatusChange" bindready="onEditorReady" show-img-size="true" show-img-toolbar="true" show-img-resize="true">
+  </editor>
+</view>
+
+<view class="toolbar" catchtouchend="format" style="bottom: {{isIOS ? keyboardHeight : 0}}px">
+  <i class="iconfont e-tupian" catchtouchend="insertImage"></i>
+  <i class="iconfont e-h2 {{formats.header === 2 ? 'ql-active' : ''}}" data-name="header" data-value="{{2}}"></i>
+  <i class="iconfont e-jiacu {{formats.bold ? 'ql-active' : ''}}" data-name="bold"></i>
+  <i class="iconfont e-xieti {{formats.italic ? 'ql-active' : ''}}" data-name="italic"></i>
+  <i class="iconfont e-xiahuaxian {{formats.underline ? 'ql-active' : ''}}" data-name="underline"></i>
+  <i class="iconfont e-youxu {{formats.list === 'ordered' ? 'ql-active' : ''}}" data-name="list" data-value="ordered"></i>
+  <i class="iconfont e-wuxu {{formats.list === 'bullet' ? 'ql-active' : ''}}" data-name="list" data-value="bullet"></i>
+  <view class="release-btn" bindtap="handleRelease">发布</view>
+</view>

@@ -1,0 +1,181 @@
+.images {
+  width: 100%;
+}
+
+.title {
+  margin-top: 30rpx;
+  padding: 0 30rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #000;
+}
+
+/****user*/
+
+.user {
+  display: flex;
+  align-items: center;
+  margin-top: 30rpx;
+  padding: 0 30rpx;
+}
+
+.user-head {
+  width: 80rpx;
+  height: 80rpx;
+  flex-shrink: 0;
+  border-radius: 40rpx;
+  margin-right: 20rpx;
+}
+
+.user-info {
+  flex-grow: 1;
+}
+
+.user-name {
+  font-size: 30rpx;
+  color: #333;
+}
+
+.user-time {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.follow {
+  flex-shrink: 0;
+  width: 90rpx;
+  height: 40rpx;
+  font-size: 24rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 40rpx;
+  border-radius: 6rpx;
+  background-color: #f40000;
+}
+
+.follows {
+  background-color: #eee;
+}
+
+/****user*/
+
+/** recommend **/
+
+.recommend {
+  margin-top: 50rpx;
+  padding: 0 30rpx;
+  font-size: 36rpx;
+  color: #000;
+  font-weight: bold;
+}
+
+.recommend-list {
+  margin-top: 20rpx;
+  font-size: 26rpx;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.shuzi {
+  font-size: 20rpx;
+  color: #f40000;
+  margin-right: 20rpx;
+}
+
+.recommend-text {
+  flex-grow: 1;
+}
+
+/** recommend **/
+
+/** comment **/
+
+.comment-box {
+  padding: 50rpx 30rpx;
+  font-size: 36rpx;
+  color: #000;
+  font-weight: bold;
+  padding-bottom: 300rpx;
+}
+
+.comment-item {
+  padding-top: 60rpx;
+  display: flex;
+}
+
+.comment-head {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: #eee;
+}
+
+.comment-text {
+  font-size: 26rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 2rpx solid #eee;
+  flex-grow: 1;
+}
+
+.comment-user-name {
+  color: #f40000;
+}
+
+.comment-content {
+  color: #333;
+  line-height: 40rpx;
+  text-align: justify;
+  text-align-last: justify;
+}
+
+.comment-reply {
+  background-color: #eee;
+  padding: 10rpx;
+  margin-top: 20rpx;
+  line-height: 40rpx;
+}
+
+.comment-reply-content {
+  color: #999;
+}
+
+.comment-reply-name {
+  color: #339bf4;
+}
+
+.comment-bottom {
+  margin-top: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 24rpx;
+}
+
+.comment-huifu {
+  color: #f40000;
+}
+
+.comment-createtime {
+  color: #999;
+  font-size: 20rpx;
+}
+
+.none-data {
+  text-align: center;
+  margin-top: 100rpx;
+}
+
+.none-img {
+  width: 250rpx;
+  height: 250rpx;
+}
+
+.none-text {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/** comment **/

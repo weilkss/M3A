@@ -1,0 +1,31 @@
+<view class="comment-bottom">
+  <view class="comment-btn" bindtap="handleOpenInput">
+    <i class="iconfont xiepl"></i>
+    <text>发表评论</text>
+  </view>
+  <view class="comment-item" bindtap="handleOpenInput">
+    <text class="comment-num">{{detail.comment}}</text>
+    <i class="iconfont pinlun"></i>
+  </view>
+  <view class="comment-item" bindtap="handlePraise">
+    <text class="comment-num">{{detail.praise}}</text>
+    <i class="iconfont dianzan {{detail.isPraise ? 'c4' : 'c3'}}"></i>
+  </view>
+  <view class="comment-item">
+    <i class="iconfont fenxiang"></i>
+    <button class="comment-share" open-type="share" hover-class="none"></button>
+  </view>
+</view>
+
+<view class="comment-input" wx:if="{{commentVisible}}" catchtouchmove="catchtouchmove">
+  <view class="comment-input-wrapper" catchtap="handleCloseInput">
+    <view class="comment-input-box {{commentVisibles ? ' show ' : 'hidden '}}" catchtap="catchtap">
+      <view class="comment-input-head">
+        <view class="cancel" bindtap="handleCloseInput">取消</view>
+        <view class="text">评论</view>
+        <view class="cancel" bindtap="handleSend">发送</view>
+        <textarea class="textarea" wx:if="{{textarea}}" value="{{commentText}}" fixed="true" auto-focus="true" bindinput="taInput" placeholder="请输入评论内容"></textarea>
+      </view>
+    </view>
+  </view>
+</view>

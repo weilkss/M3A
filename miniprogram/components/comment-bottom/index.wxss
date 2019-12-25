@@ -1,0 +1,162 @@
+@import "../../app.wxss";
+
+.comment-bottom {
+  position: fixed;
+  bottom: 0;
+  padding: 20rpx 0;
+  left: 0;
+  right: 0;
+  z-index: 998;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  padding-bottom: calc(env(safe-area-inset-bottom) + 20rpx);
+}
+
+.comment-btn {
+  background-color: #eee;
+  padding: 10rpx;
+  flex-grow: 1;
+  margin: 0 30rpx;
+  color: #333;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  border-radius: 6rpx;
+}
+
+.comment-item {
+  position: relative;
+  padding: 0 30rpx;
+}
+
+.comment-share {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+}
+
+.comment-num {
+  position: absolute;
+  top: -5rpx;
+  right: 10rpx;
+  z-index: 1;
+  font-size: 20rpx;
+  color: #333;
+}
+
+.xiepl {
+  font-size: 24rpx;
+  color: #333;
+  margin-right: 10rpx;
+}
+
+.pinlun, .dianzan, .fenxiang {
+  font-size: 32rpx;
+  color: #333;
+}
+
+.dianzan.c4 {
+  color: #f40000;
+}
+
+.dianzan.c3 {
+  color: #333;
+}
+
+.comment-input {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1110;
+  outline: 0;
+  text-align: center;
+  backface-visibility: hidden;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.comment-input-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.comment-input-box {
+  position: absolute;
+  background-color: #fff;
+  height: 80%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.show {
+  transform: translateY(100%);
+  animation: show 0.5s ease-in-out forwards;
+}
+
+.hidden {
+  transform: translateY(0);
+  animation: hidden 0.5s ease-in-out forwards;
+}
+
+@keyframes show {
+  0% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes hidden {
+  0% {
+    transform: translateY(0%);
+  }
+
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.comment-input-head {
+  padding: 20rpx 30rpx;
+  border-bottom: 2rpx solid #eee;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.text {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 32rpx;
+  color: #999;
+}
+
+.cancel, .cancel {
+  font-size: 32rpx;
+  color: #f40000;
+}
+
+.textarea {
+  text-align: left;
+  width: 100%;
+  height: 180rpx;
+  font-size: 30rpx;
+  padding: 30rpx;
+  position: absolute;
+  bottom: -180rpx;
+  left: 0;
+  z-index: 1;
+  box-sizing: border-box;
+}

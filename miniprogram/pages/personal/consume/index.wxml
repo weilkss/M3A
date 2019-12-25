@@ -1,0 +1,50 @@
+<view class="tab">
+  <view class="tab-item {{index===tabindex ? 'active' : ''}}" wx:for="{{tabs}}" wx:key="index" data-index="{{index}}" bindtap="handleTab">{{item}}</view>
+  <view class="tab-active" style="width:{{width}}px;left:{{offsetLeft}}px"></view>
+</view>
+
+<view class="content" style="transform: translateX({{translateX}}%)">
+  <view class="add">
+    <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+      <view class="item">
+        <label class="label">加油日期：</label>
+        <text class="input-texts {{date ? '' : 'color9'}}">{{date ? date : '请选择加油日期'}}</text>
+        <i class="iconfont gengduo"></i>
+      </view>
+    </picker>
+
+    <view class="item">
+      <label class="label">加油金额：</label>
+      <input class="input-texts" type="number" value="{{price}}" placeholder="请输入加油金额" bindinput="handleInput"></input>
+      <text class="danwei">元</text>
+    </view>
+
+    <view class="item" bindtap="handleOpenLotion">
+      <text class="label">加油站：</text>
+      <text class="input-texts {{address ? '' : 'color9'}}">{{address ? address.name : '请选择加油站'}}</text>
+      <i class="iconfont gengduo"></i>
+    </view>
+    <view class="submmit" bindtap="handleSubmit">添加</view>
+
+  </view>
+  <scroll-view scroll-y="true" class="history">
+    <view class="all">
+      <view class="item-all">
+        <view class="num">{{total}}</view>
+        <view class="title">总加油次数</view>
+      </view>
+      <view class="item-all">
+        <view class="num">{{priceTotal}}</view>
+        <view class="title">总加油金额</view>
+      </view>
+    </view>
+    <view class="history-item" wx:for="{{consumes}}" wx:key="index">
+      <text class="date">{{item.date}}</text>
+      <text class="price">￥{{item.price}}</text>
+      <view class="name ellipsis" data-index="{{index}}" bindtap="handleSeeAddress">
+        <i class="iconfont weizhi"></i>
+        <text class="ellipsis">{{item.address.name}}</text>
+      </view>
+    </view>
+  </scroll-view>
+</view>

@@ -1,0 +1,69 @@
+/********** loading ************/
+
+.post-loading {
+  height: 0;
+  padding: 0;
+  opacity: 0;
+  overflow: hidden;
+  text-align: center;
+  transition: all 0.5s ease-out;
+}
+
+.post-loading.show {
+  height: 10px;
+  padding: 20px 0;
+  opacity: 1;
+}
+
+.post-loading.hidden {
+  height: 0;
+  padding: 0;
+  opacity: 0;
+}
+
+.looping-rhombuses-spinner {
+  width: calc(10px * 4);
+  height: 10px;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.looping-rhombuses-spinner .rhombus {
+  height: 10px;
+  width: 10px;
+  background-color: #f40000;
+  left: calc(10px * 2);
+  position: absolute;
+  margin: 0 auto;
+  box-sizing: border-box;
+  border-radius: 2px;
+  transform: translateY(0) rotate(45deg) scale(0);
+  animation: looping-rhombuses-spinner-animation 2500ms linear infinite;
+}
+
+.looping-rhombuses-spinner .rhombus:nth-child(1) {
+  animation-delay: calc(2500ms * 1 / -1.5);
+}
+
+.looping-rhombuses-spinner .rhombus:nth-child(2) {
+  animation-delay: calc(2500ms * 2 / -1.5);
+}
+
+.looping-rhombuses-spinner .rhombus:nth-child(3) {
+  animation-delay: calc(2500ms * 3 / -1.5);
+}
+
+@keyframes looping-rhombuses-spinner-animation {
+  0% {
+    transform: translateX(-466%) rotate(45deg) scale(0);
+  }
+
+  50% {
+    transform: translateX(-233%) rotate(45deg) scale(1);
+  }
+
+  100% {
+    transform: translateX(0) rotate(45deg) scale(0);
+  }
+}

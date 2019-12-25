@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "MA3 视频详情",
+  "usingComponents": {
+    "comment-bottom": "/components/comment-bottom/index"
+  },
+  "disableScroll": true
+}

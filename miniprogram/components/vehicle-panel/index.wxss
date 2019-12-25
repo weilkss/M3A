@@ -1,0 +1,79 @@
+:host {
+  width: 100%;
+}
+
+.vehicle-panel {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 10000;
+  padding-bottom: 30px;
+  transition: all .3s ease-in-out;
+  transform: translateY(100%);
+}
+
+.vehicle-panel.show {
+  transform: translateY(0);
+}
+
+.vehicle-panel.hidden {
+  transform: translateY(100%);
+}
+
+.vehicle-panel-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vehicle-panel-row-last {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vehicle-panel-row-button {
+  background-color: #fff;
+  margin: 5rpx;
+  padding: 5rpx;
+  width: 80rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  border-radius: 10rpx;
+}
+
+.vehicle-panel-row-button-number {
+  background-color: #eee;
+}
+
+.vehicle-panel-row-button-last {
+  width: 90rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+}
+
+.vehicle-hover {
+  background-color: #ccc;
+}
+
+.vehicle-panel-row-button-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.vehicle-en-button-delete {
+  width: 55rpx;
+  height: 85rpx;
+}
+
+.vehicle-panel-ok {
+  background-color: #0f4ba1;
+  color: #fff;
+  width: 150rpx;
+  height: 80rpx;
+}

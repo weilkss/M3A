@@ -1,0 +1,5 @@
+<import src="../../components/toast/index.wxml" />
+<template is="toast" data="{{isHide,content}}" />
+
+<image class="logo" src="/images/logo.jpg"></image>
+<button class="login-btn" open-type="getUserInfo" lang="zh_CN" hover-class="none" bindgetuserinfo="getuserinfo">授权登录</button>

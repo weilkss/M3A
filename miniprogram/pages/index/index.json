@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "tab-announce": "/components/tab-announce/index"
+  },
+  "backgroundTextStyle": "light",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#f40000",
+  "backgroundColorBottom": "#fff",
+  "onReachBottomDistance": 0
+}

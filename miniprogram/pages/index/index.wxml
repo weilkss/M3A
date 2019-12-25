@@ -1,0 +1,163 @@
+<import src="../../components/toast/index.wxml" />
+<template is="toast" data="{{isHide,content}}" />
+
+<view bindtap="handleCloseAnnounce">
+  <tab-announce announce="{{announce}}"></tab-announce>
+  <view class="mask" wx:if="{{screenPanel}}" catchtouchmove="catchtouchmove"></view>
+  <view class="panel">
+    <view class="top-panel transition">
+      <view class="top-title">Mazda 3 Axela* 车友会</view>
+      <navigator class="top-user" url="/pages/friend/index" hover-class="none">
+        <text class="top-user-num">{{userTotal}}</text>
+        <text class="top-user-tip">人已加入车友会</text>
+        <view class="u-head-pic" style="width:{{30 * newUsers.length}}rpx">
+          <image wx:for="{{newUsers}}" wx:key="index" src="{{item.avatarUrl}}"></image>
+        </view>
+        <i class="iconfont gengduo"></i>
+      </navigator>
+    </view>
+    <scroll-view class="album" scroll-x="true" scroll-with-animation='true'>
+      <navigator class="album-item album-item-head" url="/pages/photo/index" hover-class="none">
+        <view class="album-title">车友相册</view>
+        <view class="album-share-num">{{albumTotal}}人分享</view>
+      </navigator>
+      <view class="album-item transition" wx:for="{{album}}" wx:key="index" style="back" data-id="{{item._id}}" bindtap="handleToImage">
+        <image class="album-img-mask" mode="aspectFill" src="/images/mask.png"></image>
+        <image class="album-img" mode="aspectFill" src="{{item.cover}}"></image>
+        <image class="albun-head" mode="aspectFill" src="{{item.user.avatarUrl}}"></image>
+        <view class="albun-praise {{item.isPraise ? 'c4' : 'c3'}}">
+          <i class="iconfont dianzan"></i>
+          <text>{{item.praise}}</text>
+        </view>
+      </view>
+      <navigator class="album-item-last" url="/pages/photo/index" hover-class="none">
+        <text>查</text>
+        <text>看</text>
+        <text>更</text>
+        <text>多</text>
+      </navigator>
+    </scroll-view>
+  </view>
+
+  <view class="tab-box {{tabFixed?'tabFixed':''}}">
+    <scroll-view scroll-x class="tab" scroll-into-view="{{'item-' + tabIndex}}">
+      <view class="tab-item {{tabIndex==index?'active':''}}" wx:for='{{tabs}}' wx:key="index" data-index="{{index}}" bindtap="handleTabItem" id="{{'item-' + index}}">{{item.name}}</view>
+    </scroll-view>
+    <view class="drop-down" bindtap="handleOpenDrop">
+      <text>{{screenLists[screenIndex].name}}</text>
+      <i class="iconfont xiala"></i>
+    </view>
+    <view class="screen-panel {{screenPanel ? 'screen-panel-open' : 'screen-panel-close'}}" catchtouchmove="catchtouchmove">
+      <view class="screen-text {{screenIndex==index ? 'screen-active' : ''}}" wx:for="{{screenLists}}" wx:key="index" data-index="{{index}}" bindtap="handleScreen">{{item.name}}</view>
+    </view>
+  </view>
+
+  <view class="post-loading {{postLoading ? 'show' : 'hidden'}}">
+    <div class="looping-rhombuses-spinner">
+      <div class="rhombus"></div>
+      <div class="rhombus"></div>
+      <div class="rhombus"></div>
+    </div>
+  </view>
+
+  <view class="content" style="{{tabFixed ? 'margin-top:' + tabHeight + 'px;' : 'margin-top:0'}}">
+    <block wx:if="{{detailend}}">
+      <view class="content-item content-item-mask">
+        <image class="content-item-mask-image" src="/images/masks.png"></image>
+      </view>
+      <view class="content-item content-item-mask">
+        <image class="content-item-mask-image" src="/images/masks.png"></image>
+      </view>
+    </block>
+    <block wx:else>
+      <block wx:if="{{details.length || postLoading}}">
+        <view class="content-item transition" wx:for="{{details}}" wx:key="index">
+          <view wx:if="{{item.type == 2}}" data-index="{{index}}" bindtap="handleToDetail">
+            <view class="biaoqian" wx:if="{{item.cover}}">{{item.typeName}}</view>
+            <block wx:if="{{item.cover}}">
+              <image class="content-item-cover" mode="aspectFill" src="{{item.cover}}"></image>
+              <image class="content-item-cover-mask" mode="aspectFill" src="/images/maskst.png"></image>
+            </block>
+            <view class="content-item-title">
+              <text class="biaoqians" wx:if="{{!item.cover}}">{{item.typeName}}</text>
+              <text class="content-item-title-text ellipsis">{{item.title}}</text>
+            </view>
+            <view class="content-item-user">
+              <image class="content-head" src="{{item.user.avatarUrl}}"></image>
+              <view class="content-left">
+                <view class="user-name">{{item.user.name}}</view>
+                <view class="user-time">{{item.createTime}}</view>
+              </view>
+              <view class="content-right">
+                <view class="content-right-item {{item.isPraise ? 'c4' : 'c3'}}">
+                  <i class="iconfont dianzan"></i>
+                  <text>{{item.praise}}</text>
+                </view>
+                <view class="content-right-item">
+                  <i class="iconfont pinlun"></i>
+                  <text>{{item.comment}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view wx:elif="{{item.type == 6}}" data-index="{{index}}" bindtap="handleToDetail">
+            <view class="content-img-item-title ellipsis ">{{item.title}}</view>
+            <block wx:if="{{item.cover}}">
+              <view class="content-item-img">
+                <view class="content-item-img-wrap" wx:for="{{item.imgs}}" wx:for-item="itemImg" wx:for-index="indexImg" wx:key="indexImg">
+                  <image class="content-item-img-cover" wx:if="{{indexImg < 3}}" mode="aspectFill" src="{{itemImg.url}}"></image>
+                </view>
+              </view>
+            </block>
+            <view class="content-item-user">
+              <image class="content-head" src="{{item.user.avatarUrl}}"></image>
+              <view class="content-left">
+                <view class="user-name">{{item.user.name}}</view>
+                <view class="user-time">{{item.createTime}}</view>
+              </view>
+              <view class="content-right">
+                <view class="content-right-item {{item.isPraise ? 'c4' : 'c3'}}">
+                  <i class="iconfont dianzan"></i>
+                  <text>{{item.praise}}</text>
+                </view>
+                <view class="content-right-item">
+                  <i class="iconfont pinlun"></i>
+                  <text>{{item.comment}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+          <block wx:elif="{{item.type == 3}}">
+            <view class="video-panel">
+              <video class="video" src="{{item.video.url}}" poster="{{item.cover}}" style="width: {{item.video.vw}}px;height: {{item.video.vh}}px;"></video>
+              <view class="video-title muEllipsis" data-index="{{index}}" bindtap="handleToDetail">{{item.title}}</view>
+            </view>
+            <view class="content-item-user" data-index="{{index}}" bindtap="handleToDetail">
+              <image class="content-head" src="{{item.user.avatarUrl}}"></image>
+              <view class="content-left">
+                <view class="user-name">{{item.user.name}}</view>
+                <view class="user-time">{{item.createTime}}</view>
+              </view>
+              <view class="content-right">
+                <view class="content-right-item {{item.isPraise ? 'c4' : 'c3'}}">
+                  <i class="iconfont dianzan"></i>
+                  <text>{{item.praise}}</text>
+                </view>
+                <view class="content-right-item">
+                  <i class="iconfont pinlun"></i>
+                  <text>{{item.comment}}</text>
+                </view>
+              </view>
+            </view>
+          </block>
+        </view>
+      </block>
+      <view class="none-data" wx:else>
+        <i class="iconfont none"></i>
+        <view class="none-text">没有数据，快去发布个吧~</view>
+      </view>
+    </block>
+  </view>
+
+  <view class="bottom-tab"></view>
+</view>

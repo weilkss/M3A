@@ -1,0 +1,60 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/personal/index",
+    "pages/login/index",
+    "pages/detail/photo",
+    "pages/detail/post",
+    "pages/detail/video",
+    "pages/friend/index",
+    "pages/photo/index",
+    "pages/personal/addcar/index",
+    "pages/personal/fans/index",
+    "pages/personal/follow/index",
+    "pages/personal/reply/index",
+    "pages/personal/post/index",
+    "pages/personal/consume/index"
+  ],
+  "window": {
+    "backgroundColor": "#fff",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#f40000",
+    "navigationBarTitleText": "Mazda 3 Axela",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "tabBar": {
+    "custom": true,
+    "color": "#7A7E83",
+    "selectedColor": "#f40000",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/homes.png",
+        "text": "M3A"
+      },
+      {
+        "pagePath": "pages/personal/index",
+        "iconPath": "images/personal.png",
+        "selectedIconPath": "images/personals.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序定位"
+    }
+  },
+  "plugins": {
+    "chooseLocation": {
+      "version": "1.0.2",
+      "provider": "wx76a9a06e5b4e693e"
+    }
+  },
+  "usingComponents": {}
+}
