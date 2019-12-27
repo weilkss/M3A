@@ -9,9 +9,9 @@
       <image class="user-avatar" src="{{personalInfo.avatarUrl || '/images/youxiang.png'}}"></image>
       <view class="user-name" wx:if="{{uid}}">{{personalInfo.name}}</view>
       <navigator url="/pages/login/index" wx:else hover-class="none">
-        <view class="user-name">登录/注册</view>
+        <view class="user-name">微信授权</view>
       </navigator>
-      <view class="user-tab">
+      <view class="user-tab" wx:if="{{dev}}">
         <view class="user-tab-item" bindtap="toFollow">
           <view class="user-tab-title">{{uid ? personalInfo.follow : '--'}}</view>
           <view class="user-tab-text">关注</view>
@@ -26,7 +26,7 @@
         </view>
       </view>
 
-      <view class="release">
+      <view class="release" wx:if="{{dev}}">
         <view class="release-item" data-index="0" bindtap="toPost">
           <image class="release-icon" src="/images/icon_order.png"></image>
           <text class="release-text">帖子</text>
@@ -45,7 +45,7 @@
         </view>
       </view>
 
-      <view class="love-car">
+      <view class="love-car" style="margin-top:{{dev? 10 : 40}}rpx;">
         <block wx:if="{{!personalInfo.car_code}}">
           <view class="add-car" bindtap="toAddcar">
             <i class="iconfont tianjia"></i>

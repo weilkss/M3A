@@ -4,8 +4,7 @@ cloud.init({
 })
 const db = cloud.database();
 
-/**
- * 我的回复
+/** * 我的回复
  */
 exports.main = async(event, context) => {
   let replys = null;
@@ -34,6 +33,7 @@ exports.main = async(event, context) => {
     })
 
   for (const item of replys) {
+    item.type = item.post[0].type;
     item.post_title = item.post[0].title;
     if (item.commmm.length) {
       item.reply_content = item.commmm[0].content

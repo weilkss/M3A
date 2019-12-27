@@ -2,9 +2,9 @@
 <template is="toast" data="{{isHide,content}}" />
 
 <view bindtap="handleCloseAnnounce">
-  <tab-announce announce="{{announce}}"></tab-announce>
+  <tab-announce announce="{{announce}}" wx:if="{{dev}}"></tab-announce>
   <view class="mask" wx:if="{{screenPanel}}" catchtouchmove="catchtouchmove"></view>
-  <view class="panel">
+  <view class="panel" wx:if="{{dev}}">
     <view class="top-panel transition">
       <view class="top-title">Mazda 3 Axela* 车友会</view>
       <navigator class="top-user" url="/pages/friend/index" hover-class="none">
@@ -43,7 +43,7 @@
     <scroll-view scroll-x class="tab" scroll-into-view="{{'item-' + tabIndex}}">
       <view class="tab-item {{tabIndex==index?'active':''}}" wx:for='{{tabs}}' wx:key="index" data-index="{{index}}" bindtap="handleTabItem" id="{{'item-' + index}}">{{item.name}}</view>
     </scroll-view>
-    <view class="drop-down" bindtap="handleOpenDrop">
+    <view class="drop-down" bindtap="handleOpenDrop" wx:if="{{dev}}">
       <text>{{screenLists[screenIndex].name}}</text>
       <i class="iconfont xiala"></i>
     </view>
@@ -88,7 +88,7 @@
                 <view class="user-name">{{item.user.name}}</view>
                 <view class="user-time">{{item.createTime}}</view>
               </view>
-              <view class="content-right">
+              <view class="content-right" wx:if="{{dev}}">
                 <view class="content-right-item {{item.isPraise ? 'c4' : 'c3'}}">
                   <i class="iconfont dianzan"></i>
                   <text>{{item.praise}}</text>
@@ -115,7 +115,7 @@
                 <view class="user-name">{{item.user.name}}</view>
                 <view class="user-time">{{item.createTime}}</view>
               </view>
-              <view class="content-right">
+              <view class="content-right" wx:if="{{dev}}">
                 <view class="content-right-item {{item.isPraise ? 'c4' : 'c3'}}">
                   <i class="iconfont dianzan"></i>
                   <text>{{item.praise}}</text>
@@ -138,7 +138,7 @@
                 <view class="user-name">{{item.user.name}}</view>
                 <view class="user-time">{{item.createTime}}</view>
               </view>
-              <view class="content-right">
+              <view class="content-right" wx:if="{{dev}}">
                 <view class="content-right-item {{item.isPraise ? 'c4' : 'c3'}}">
                   <i class="iconfont dianzan"></i>
                   <text>{{item.praise}}</text>
@@ -152,10 +152,6 @@
           </block>
         </view>
       </block>
-      <view class="none-data" wx:else>
-        <i class="iconfont none"></i>
-        <view class="none-text">没有数据，快去发布个吧~</view>
-      </view>
     </block>
   </view>
 

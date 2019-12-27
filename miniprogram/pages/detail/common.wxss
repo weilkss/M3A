@@ -62,8 +62,7 @@
 /** recommend **/
 
 .recommend {
-  margin-top: 50rpx;
-  padding: 0 30rpx;
+  padding: 50rpx 30rpx;
   font-size: 36rpx;
   color: #000;
   font-weight: bold;
@@ -92,7 +91,7 @@
 /** comment **/
 
 .comment-box {
-  padding: 50rpx 30rpx;
+  padding: 0 30rpx 50rpx;
   font-size: 36rpx;
   color: #000;
   font-weight: bold;

@@ -8,7 +8,7 @@
     <view class="user-name">{{detail.user.name}}</view>
     <view class="user-time">{{detail.createTime}}</view>
   </view>
-  <view class="follow {{detail.isFollow ? 'follows' : ''}}" bindtap="handleFollow">{{detail.isFollow ? "已关注" : "关注"}}</view>
+  <view class="follow {{detail.isFollow ? 'follows' : ''}}" wx:if="{{dev}}" bindtap="handleFollow">{{detail.isFollow ? "已关注" : "关注"}}</view>
 </view>
 
 <scroll-view class="content-box" scroll-y="true">
@@ -20,7 +20,7 @@
       <text class="recommend-text ellipsis">{{item.title}}</text>
     </view>
   </view>
-  <view class="comment-box">
+  <view class="comment-box" wx:if="{{dev}}">
     <view class="comment-title">全部评论</view>
     <block wx:if="{{comments.length}}">
       <view class="comment-item" wx:for="{{comments}}" wx:key="index">
@@ -46,4 +46,4 @@
   </view>
 </scroll-view>
 
-<comment-bottom id="commentBottom" detail="{{detail}}" bind:send="handleSend"></comment-bottom>
+<comment-bottom id="commentBottom" wx:if="{{dev}}" detail="{{detail}}" bind:send="handleSend"></comment-bottom>

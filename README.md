@@ -84,10 +84,10 @@
 ```js
   _id: '01ace4015dfc9e43053b8ce754ae577e',          // ID
   subid: 'oIZWX5FFVAngMzsfJJVBLEmBvKew',            // 图贴的id
-  uid: 'oIZWX5FFVAngMzsfJJVBLEmBvKew',              // 关注人的ID
+  uid: 'oIZWX5FFVAngMzsfJJVBLEmBvKew',              // 点赞人的ID
 ```
 
-## 点赞接口 API `POST`
+## 图片帖子视频 API `POST`
 
 ```js
   _id: '01ace4015dfc9e43053b8ce754ae577e',          // ID

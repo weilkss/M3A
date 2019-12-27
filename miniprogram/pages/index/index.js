@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    dev: false,
     userTotal: 0,
     album: [{}, {}, {}],
     albumTotal: 0,
@@ -33,6 +34,14 @@ Page({
     new Toast()
     this.setData({
       detailend: true
+    })
+
+    wx.cloud.callFunction({
+      name: 'getParams'
+    }).then(res => {
+      this.setData({
+        dev: res.result
+      })
     })
   },
   async onShow() {
@@ -128,11 +137,13 @@ Page({
 
   onReady() {
     /** 获取顶部封面的额高度 */
-    wx.createSelectorQuery().select('.panel').boundingClientRect(rect => {
-      this.setData({
-        scrollTop: rect.height
-      })
-    }).exec();
+    if (this.data.DEV) {
+      wx.createSelectorQuery().select('.panel').boundingClientRect(rect => {
+        this.setData({
+          scrollTop: rect.height
+        })
+      }).exec();
+    }
     /** 获取tab高度 */
     wx.createSelectorQuery().select('.tab-box').boundingClientRect(rect => {
       this.setData({
@@ -170,7 +181,7 @@ Page({
     const tabs = this.data.tabs;
     this.setData({
       limit: 3,
-      details:[],
+      details: [],
       postLoading: true,
       tabIndex: e.currentTarget.dataset.index
     }, () => this.getPost())
