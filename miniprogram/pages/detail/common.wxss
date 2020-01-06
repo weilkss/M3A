@@ -25,6 +25,8 @@
   flex-shrink: 0;
   border-radius: 40rpx;
   margin-right: 20rpx;
+  border: 2rpx solid #fff;
+  background-color: #eee;
 }
 
 .user-info {

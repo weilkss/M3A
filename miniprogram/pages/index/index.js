@@ -13,13 +13,11 @@ Page({
     album: [{}, {}, {}],
     albumTotal: 0,
     newUsers: [],
-    tabs: datas.tabs,
+    tabs: datas.tabsProd,
     tabFixed: false,
     tabIndex: 0,
     detailend: false,
-    limit: 3,
     details: [],
-    resultDetails: [],
     postLoading: false,
     screenPanel: false,
     scrollTop: 0,
@@ -35,14 +33,6 @@ Page({
     this.setData({
       detailend: true
     })
-
-    wx.cloud.callFunction({
-      name: 'getParams'
-    }).then(res => {
-      this.setData({
-        dev: res.result
-      })
-    })
   },
   async onShow() {
     if (typeof this.getTabBar === 'function' && this.getTabBar()) {
@@ -51,19 +41,45 @@ Page({
       })
     }
 
+    let dev = false;
     wx.showNavigationBarLoading()
-    /** 获取车友 */
-    await this.getCarFriend()
-    /** 获取相册 */
+
     await wx.cloud.callFunction({
-      name: 'getIndexPhoto',
-      data: {
-        uid: wx.getStorageSync('uid') || 0
-      }
-    }).then(res => this.setData({
-      album: res.result.album,
-      albumTotal: res.result.albumTotal
-    }))
+      name: 'getParams'
+    }).then(res => {
+      dev = res.result
+      this.setData({
+        dev
+      })
+    })
+
+    setTimeout(() => {
+      /** 获取顶部封面的额高度 */
+      wx.createSelectorQuery().select('.panel').boundingClientRect(rect => {
+        this.setData({
+          scrollTop: rect.height
+        })
+      }).exec();
+    }, 100)
+
+    this.setData({
+      tabs: dev ? datas.tabs : datas.tabsProd
+    })
+
+    if (dev) {
+      /** 获取车友 */
+      await this.getCarFriend()
+      /** 获取相册 */
+      await wx.cloud.callFunction({
+        name: 'getIndexPhoto',
+        data: {
+          uid: wx.getStorageSync('uid') || 0
+        }
+      }).then(res => this.setData({
+        album: res.result.album,
+        albumTotal: res.result.albumTotal
+      }))
+    }
 
     await this.getPost()
 
@@ -101,9 +117,9 @@ Page({
         uid: wx.getStorageSync('uid') || 0,
       }
     }).then(res => {
-      let resultDetails = res.result
+      let details = res.result
 
-      for (const item of resultDetails) {
+      for (const item of details) {
         item.createTime = utils.dateFormater('YYYY-MM-DD HH:mm:ss', item.create_time)
 
         if (item.type == 3) {
@@ -125,8 +141,7 @@ Page({
       }
 
       this.setData({
-        resultDetails,
-        details: resultDetails.slice(0, this.data.limit),
+        details,
         detailend: false,
         postLoading: false,
       })
@@ -136,14 +151,6 @@ Page({
   },
 
   onReady() {
-    /** 获取顶部封面的额高度 */
-    if (this.data.DEV) {
-      wx.createSelectorQuery().select('.panel').boundingClientRect(rect => {
-        this.setData({
-          scrollTop: rect.height
-        })
-      }).exec();
-    }
     /** 获取tab高度 */
     wx.createSelectorQuery().select('.tab-box').boundingClientRect(rect => {
       this.setData({
@@ -180,7 +187,6 @@ Page({
   handleTabItem(e) {
     const tabs = this.data.tabs;
     this.setData({
-      limit: 3,
       details: [],
       postLoading: true,
       tabIndex: e.currentTarget.dataset.index
@@ -240,22 +246,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   async onPullDownRefresh() {
-    this.setData({
-      limit: 3
-    }, () => this.getPost())
-  },
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom(e) {
-    if (this.data.details.length < this.data.resultDetails.length) {
-      const limit = this.data.limit + 1;
-      const details = this.data.resultDetails.slice(0, limit)
-      this.setData({
-        limit,
-        details
-      })
-    }
+    this.getPost()
   },
   /**
    * 跳转到图片详情

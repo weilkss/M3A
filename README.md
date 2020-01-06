@@ -44,16 +44,16 @@
 
 ```js
   _id: '72527ac65e031c1806ddc9dd7adf816b',         // ID
-  post_id: 'e8f863ba5de8a87e008464507b5b3f0e',     // 帖子详情ID
   content: '喜欢',                                 // 评论内容
   create_time: 1575528516687,                      // 评论时间
+  post_id: 'e8f863ba5de8a87e008464507b5b3f0e',     // 帖子详情ID
   replyid: 'b08c019ab9ec44fabdf062e2cc04d277',     // 评论主体ID
   seemsg: 0,                                       // 是否阅读
   status: 1,                                       // 是否显示
-  user_avatar: 'https://dd...ddd.png',             // 用户头像
-  uid: 'dbff9fc75de866b400734e7a0e5fb4a7',         // 用户ID
-  user_name: '铁甲虾堡'                             // 用户昵称
   subid: 'oIZWX5IPwOnJyk7CFmGEUw7-nMVA'            // 主体关联用户ID
+  uid: 'dbff9fc75de866b400734e7a0e5fb4a7',         // 用户ID
+  user_avatar: 'https://dd...ddd.png',             // 用户头像
+  user_name: '铁甲虾堡'                             // 用户昵称
 ```
 
 ## 加油记录接口 API `CONSUME`

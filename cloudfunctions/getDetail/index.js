@@ -10,7 +10,6 @@ exports.main = async(event, context) => {
   let detail = null;
   const detailId = event.detailId
   const uid = event.uid
-
   await db.collection('POST')
     .aggregate()
     .match({

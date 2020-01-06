@@ -4,8 +4,8 @@
 <view bindtap="handleCloseAnnounce">
   <tab-announce announce="{{announce}}" wx:if="{{dev}}"></tab-announce>
   <view class="mask" wx:if="{{screenPanel}}" catchtouchmove="catchtouchmove"></view>
-  <view class="panel" wx:if="{{dev}}">
-    <view class="top-panel transition">
+  <view class="panel">
+    <view class="top-panel transition" wx:if="{{dev}}">
       <view class="top-title">Mazda 3 Axela* 车友会</view>
       <navigator class="top-user" url="/pages/friend/index" hover-class="none">
         <text class="top-user-num">{{userTotal}}</text>
@@ -16,7 +16,7 @@
         <i class="iconfont gengduo"></i>
       </navigator>
     </view>
-    <scroll-view class="album" scroll-x="true" scroll-with-animation='true'>
+    <scroll-view class="album" wx:if="{{dev}}" scroll-x="true" scroll-with-animation='true'>
       <navigator class="album-item album-item-head" url="/pages/photo/index" hover-class="none">
         <view class="album-title">车友相册</view>
         <view class="album-share-num">{{albumTotal}}人分享</view>
@@ -39,7 +39,7 @@
     </scroll-view>
   </view>
 
-  <view class="tab-box {{tabFixed?'tabFixed':''}}">
+  <view class="tab-box {{tabFixed ? 'tabFixed' : ''}}">
     <scroll-view scroll-x class="tab" scroll-into-view="{{'item-' + tabIndex}}">
       <view class="tab-item {{tabIndex==index?'active':''}}" wx:for='{{tabs}}' wx:key="index" data-index="{{index}}" bindtap="handleTabItem" id="{{'item-' + index}}">{{item.name}}</view>
     </scroll-view>
@@ -127,7 +127,7 @@
               </view>
             </view>
           </view>
-          <block wx:elif="{{item.type == 3}}">
+          <block wx:elif="{{item.type == 3 && dev}}">
             <view class="video-panel">
               <video class="video" src="{{item.video.url}}" poster="{{item.cover}}" style="width: {{item.video.vw}}px;height: {{item.video.vh}}px;"></video>
               <view class="video-title muEllipsis" data-index="{{index}}" bindtap="handleToDetail">{{item.title}}</view>

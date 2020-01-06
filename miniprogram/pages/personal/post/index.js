@@ -7,7 +7,6 @@ Page({
   data: {
     tabindex: 0,
     width: 0,
-    limit: 3,
     lists: [],
     postLoading: true,
     offsetLeft: 0,
@@ -47,33 +46,19 @@ Page({
 
       this.setData({
         postLoading: false,
-        resultLists: res.result,
-        lists: res.result.slice(0, this.data.limit)
+        lists: res.result
       })
     })
   },
   handleTab(e) {
     this.setData({
       lists: [],
-      limit: 3,
       postLoading: true,
       tabindex: e.currentTarget.dataset.index,
       offsetLeft: e.currentTarget.offsetLeft
     }, () => {
       this.getLists()
     })
-  },
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  async onReachBottom() {
-    const limit = this.data.limit + 1;
-    if (this.data.lists.length < this.data.resultLists.length) {
-      this.setData({
-        limit,
-        lists: this.data.resultLists.slice(0, limit)
-      })
-    }
   },
   toDetail(e) {
     const lists = this.data.lists

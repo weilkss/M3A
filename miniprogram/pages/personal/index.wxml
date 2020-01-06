@@ -9,7 +9,7 @@
       <image class="user-avatar" src="{{personalInfo.avatarUrl || '/images/youxiang.png'}}"></image>
       <view class="user-name" wx:if="{{uid}}">{{personalInfo.name}}</view>
       <navigator url="/pages/login/index" wx:else hover-class="none">
-        <view class="user-name">微信授权</view>
+        <view class="user-name">授权登录</view>
       </navigator>
       <view class="user-tab" wx:if="{{dev}}">
         <view class="user-tab-item" bindtap="toFollow">

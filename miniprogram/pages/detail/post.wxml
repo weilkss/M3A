@@ -15,7 +15,7 @@
   <template is="wxParse" data="{{wxParseData:article.nodes}}" />
 </view>
 
-<view class="recommend" wx:if="{{recommends.length}}">
+<view class="recommend" wx:if="{{recommends.length && dev}}">
   <view class="recommend-title">相关推荐</view>
   <view class="recommend-list" wx:for="{{recommends}}" wx:key="index" data-index="{{index}}" bindtap="handleToDetail">
     <i class="iconfont shuzi shuzi-{{index + 1}}"></i>
