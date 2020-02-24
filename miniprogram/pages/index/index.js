@@ -12,7 +12,7 @@ Page({
     album: [{}, {}, {}],
     albumTotal: 0,
     newUsers: [],
-    tabs: datas.tabsProd,
+    tabs: datas.tabs,
     tabFixed: false,
     tabIndex: 0,
     detailend: false,

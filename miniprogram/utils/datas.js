@@ -1,12 +1,5 @@
 const datas = {
   shareCover: 'cloud://prod-b29ch.7072-prod-b29ch-1300731124/img/share.jpg',
-  tabsProd: [{
-    id: 1,
-    name: '全部'
-  }, {
-    id: 2,
-    name: '帖子'
-  }],
   tabs: [{
       id: 1,
       name: '全部'
