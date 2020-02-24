@@ -8,7 +8,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dev: false,
     userTotal: 0,
     album: [{}, {}, {}],
     albumTotal: 0,
@@ -41,17 +40,7 @@ Page({
       })
     }
 
-    let dev = false;
     wx.showNavigationBarLoading()
-
-    await wx.cloud.callFunction({
-      name: 'getParams'
-    }).then(res => {
-      dev = res.result
-      this.setData({
-        dev
-      })
-    })
 
     setTimeout(() => {
       /** 获取顶部封面的额高度 */
@@ -62,24 +51,18 @@ Page({
       }).exec();
     }, 100)
 
-    this.setData({
-      tabs: dev ? datas.tabs : datas.tabsProd
-    })
-
-    if (dev) {
-      /** 获取车友 */
-      await this.getCarFriend()
-      /** 获取相册 */
-      await wx.cloud.callFunction({
-        name: 'getIndexPhoto',
-        data: {
-          uid: wx.getStorageSync('uid') || 0
-        }
-      }).then(res => this.setData({
-        album: res.result.album,
-        albumTotal: res.result.albumTotal
-      }))
-    }
+    /** 获取车友 */
+    await this.getCarFriend()
+    /** 获取相册 */
+    await wx.cloud.callFunction({
+      name: 'getIndexPhoto',
+      data: {
+        uid: wx.getStorageSync('uid') || 0
+      }
+    }).then(res => this.setData({
+      album: res.result.album,
+      albumTotal: res.result.albumTotal
+    }))
 
     await this.getPost()
 

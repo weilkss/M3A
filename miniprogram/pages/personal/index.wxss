@@ -129,7 +129,7 @@ page {
 }
 
 .love-car {
-  margin: 10rpx 30rpx 20px;
+  margin: 10rpx 30rpx 20rpx;
   background-color: #fff;
   border-radius: 10rpx;
 }

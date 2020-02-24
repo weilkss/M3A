@@ -13,7 +13,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dev: false,
     ec: {
       lazyLoad: true
     },
@@ -31,13 +30,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    wx.cloud.callFunction({
-      name: 'getParams'
-    }).then(res => {
-      this.setData({
-        dev: res.result
-      })
-    })
     const uid = wx.getStorageSync('uid') || 0;
     const systemInfo = this.getSystemInfo()
     this.setData({

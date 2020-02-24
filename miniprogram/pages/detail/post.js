@@ -6,7 +6,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dev: false,
     detailId: '',
     detail: null,
     comments: [],
@@ -16,13 +15,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   async onLoad(options) {
-    wx.cloud.callFunction({
-      name: 'getParams'
-    }).then(res => {
-      this.setData({
-        dev: res.result
-      })
-    })
     wx.showNavigationBarLoading()
     await this.getDetailById(options.detailId)
     await this.getRecommend()

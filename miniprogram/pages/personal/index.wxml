@@ -11,7 +11,7 @@
       <navigator url="/pages/login/index" wx:else hover-class="none">
         <view class="user-name">授权登录</view>
       </navigator>
-      <view class="user-tab" wx:if="{{dev}}">
+      <view class="user-tab">
         <view class="user-tab-item" bindtap="toFollow">
           <view class="user-tab-title">{{uid ? personalInfo.follow : '--'}}</view>
           <view class="user-tab-text">关注</view>
@@ -26,7 +26,7 @@
         </view>
       </view>
 
-      <view class="release" wx:if="{{dev}}">
+      <view class="release">
         <view class="release-item" data-index="0" bindtap="toPost">
           <image class="release-icon" src="/images/icon_order.png"></image>
           <text class="release-text">帖子</text>
@@ -45,7 +45,7 @@
         </view>
       </view>
 
-      <view class="love-car" style="margin-top:{{dev? 10 : 40}}rpx;">
+      <view class="love-car">
         <block wx:if="{{!personalInfo.car_code}}">
           <view class="add-car" bindtap="toAddcar">
             <i class="iconfont tianjia"></i>

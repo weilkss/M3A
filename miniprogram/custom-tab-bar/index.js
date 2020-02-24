@@ -1,6 +1,5 @@
 Component({
   data: {
-    dev: false,
     selected: 0,
     list: [{
       pagePath: "/pages/index/index",
@@ -15,18 +14,6 @@ Component({
       selectedIconPath: "/images/personals.png",
       text: "我的"
     }]
-  },
-
-  lifetimes: {
-    attached() {
-      wx.cloud.callFunction({
-        name: 'getParams'
-      }).then(res => {
-        this.setData({
-          dev: res.result
-        })
-      })
-    }
   },
 
   methods: {

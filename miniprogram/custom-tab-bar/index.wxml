@@ -1,7 +1,7 @@
 <cover-view class="tab-bar">
   <cover-view class="tab-bar-item {{index === 1 ? 'item-add' : '' }}" wx:for="{{list}}" wx:key="index" data-path="{{item.pagePath}}" data-index="{{index}}" bindtap="switchTab">
     <block wx:if='{{index === 1}}'>
-      <cover-image wx:if="{{dev}}" class="tab-add" src="{{item.iconPath}}"></cover-image>
+      <cover-image class="tab-add" src="{{item.iconPath}}"></cover-image>
     </block>
     <block wx:else>
       <cover-image class="tab-image" src="{{selected === index ? item.selectedIconPath : item.iconPath}}"></cover-image>
